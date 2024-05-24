@@ -10,7 +10,11 @@ class PageController extends Controller
 {
     public function index(){
 
-        $trains = Train::where('orario_di_partenza','like','2024-05-24%')->get();
+        var_dump(date_create());
+
+        $trains = Train::where('orario_di_partenza','<',date_create())->get();
+
+        
 
         return view ('home',compact('trains'));
     }
