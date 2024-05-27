@@ -10,9 +10,9 @@ class PageController extends Controller
 {
     public function index(){
 
-        var_dump(date_create());
+        //var_dump(date_create());
 
-        $trains = Train::where('orario_di_partenza','<',date_create())->get();
+        $trains = Train::whereDate('orario_di_partenza','<',today())->get();
 
         
 
